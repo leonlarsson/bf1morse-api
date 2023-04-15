@@ -1,0 +1,3 @@
+name = "bf1morse-api"
+compatibility_date = "2023-04-15"
+main = "./index.ts"
