@@ -1,0 +1,9 @@
+{
+  "name": "bf1morse-api",
+  "main": "./index.ts",
+  "compatibility_date": "2023-04-15",
+
+  "observability": {
+    "enabled": true
+  }
+}
