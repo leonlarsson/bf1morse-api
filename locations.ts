@@ -1,7 +1,6 @@
-import { search } from "@metrichor/jmespath";
-import { JMESPathItem, Location } from "./types";
+import type { Location, RawMap } from "./types";
 
-const locationsData = [
+const locationsData: RawMap[] = [
     {
         mapName: "Amiens",
         mapUrl: "https://bf1morse.leonlarsson.com/locations/amiens.png",
@@ -590,7 +589,11 @@ const locationsData = [
     }
 ];
 
-const transformedLocations = search(locationsData, "[].{mapName: mapName, mapUrl: mapUrl, locations: [location1, location2, location3]}") as JMESPathItem[];
+const transformedLocations = locationsData.map(({ mapName, mapUrl, location1, location2, location3 }) => ({
+    mapName,
+    mapUrl,
+    locations: [location1, location2, location3].filter(location => location !== undefined)
+}));
 
 const locationsArray: Location[] = [];
 transformedLocations.forEach(map => {
