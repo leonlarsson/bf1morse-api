@@ -1,28 +1,18 @@
-export type JMESPathItem = {
+type Stage = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9;
+
+type CipherKey = `cipher${"Morse" | "Text"}${Stage}`;
+
+export type RawLocation = {
+    mapUrl: string;
+    plainText: string;
+} & Partial<Record<CipherKey, string>>;
+
+export type RawMap = {
     mapName: string;
     mapUrl: string;
-    locations: {
-        mapUrl: string;
-        plainText: string;
-        cipherMorse1: string;
-        cipherText1: string;
-        cipherMorse2: string;
-        cipherText2: string;
-        cipherMorse3: string;
-        cipherText3: string;
-        cipherMorse4: string;
-        cipherText4: string;
-        cipherMorse5: string;
-        cipherText5: string;
-        cipherMorse6: string;
-        cipherText6: string;
-        cipherMorse7: string;
-        cipherText7: string;
-        cipherMorse8: string;
-        cipherText8: string;
-        cipherMorse9: string;
-        cipherText9: string;
-    }[]
+    location1: RawLocation;
+    location2?: RawLocation;
+    location3?: RawLocation;
 };
 
 export type Location = {
@@ -30,7 +20,7 @@ export type Location = {
     mapUrl: string;
     locationUrl: string;
     plainText: string;
-    stage: string | number;
-    type: "morse" | "text"
+    stage: number;
+    type: "morse" | "text";
     cipher: string;
 };
