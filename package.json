@@ -1,7 +1,4 @@
 {
-  "scripts": {
-    "test": "node --test search.test.mts"
-  },
   "devDependencies": {
     "@cloudflare/workers-types": "^4.20230404.0"
   }
